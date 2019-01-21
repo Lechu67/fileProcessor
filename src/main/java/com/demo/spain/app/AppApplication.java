@@ -2,19 +2,15 @@ package com.demo.spain.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class AppApplication {
 
 
-    public static void main(String[] args)  {
-        SpringApplication.run(AppApplication.class, args);
-        String fileName = args[0];
-        String searchType = args[1];
-        String searchWord = args[2];
-        FileProcessor reader = new FileProcessor(searchWord, searchType);
-        reader.processFile(fileName);
-
+    public static void main(String[] args) {
+        ConfigurableApplicationContext context = SpringApplication.run(AppApplication.class, args);
+        context.getBean(FileProcessor.class).processFile(args);
     }
 
 }

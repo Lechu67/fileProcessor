@@ -7,7 +7,7 @@ import java.io.Serializable;
 
 @Data
 @Builder
-public class Output  implements Serializable {
+public class DataHolder implements Serializable {
     private String name;
     private String city;
     private String id;
