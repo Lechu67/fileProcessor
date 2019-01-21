@@ -1,6 +1,6 @@
 package com.demo.spain.app.strategy.filtering;
 
-import com.demo.spain.app.DataHolder;
+import com.demo.spain.app.model.DataHolder;
 import org.springframework.stereotype.Component;
 
 @Component

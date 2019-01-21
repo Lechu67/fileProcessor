@@ -1,5 +1,6 @@
 package com.demo.spain.app;
 
+import com.demo.spain.app.model.DataHolder;
 import com.demo.spain.app.strategy.formatting.FormatDecoderStrategy;
 import com.demo.spain.app.strategy.filtering.FilteringStrategy;
 import lombok.SneakyThrows;
@@ -24,6 +25,7 @@ import java.util.List;
 public class FileProcessor {
 
 
+    private static final String DATA = "D";
     private final List<FormatDecoderStrategy> startLineDecoderStrategies;
     private final List<FilteringStrategy> filteringStrategies;
     private LineIterator fileContent;
@@ -45,8 +47,8 @@ public class FileProcessor {
         Instant startTime = Instant.now();
         loadFile(filename);
         List<String> result = processEachLine();
-        Instant finish = Instant.now();
         printUnrepeatedResults(result);
+        Instant finish = Instant.now();
         System.out.println("==========> Time: " + Duration.between(startTime,finish).toMillis() * 0.001);
         fileContent.close();
     }
@@ -63,7 +65,7 @@ public class FileProcessor {
                     continue processingNextLine;
                 }
             }
-            if(line.startsWith("D")) {
+            if(line.startsWith(DATA)) {
                 if (readingFormat == Formatting.TYPE_1) {
                     processLine(result, line, Formatting.TYPE_1.getSeparator());
                 }

@@ -1,4 +1,4 @@
-package com.demo.spain.app;
+package com.demo.spain.app.model;
 
 import lombok.Builder;
 import lombok.Data;
